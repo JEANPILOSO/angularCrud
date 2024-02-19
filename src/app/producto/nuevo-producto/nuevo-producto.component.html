@@ -1,0 +1,31 @@
+<div class="form-container">
+    <h1>{{situtlo}}</h1>
+    <form [formGroup]="Form" (ngSubmit)="GrabarForm()">
+        <input type="text" [class.invisible]="!mostrarInput" autocomplete="off" formControlName="idv" placeholder="">
+
+      <input type="text" autocomplete="off" formControlName="codigo" placeholder="Ingresar ID">
+      <div class="alert-danger" *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)">
+        <div class="container-error-message" *ngIf="codigo?.errors.required">
+         Se requiere ID
+        </div>
+        <div class="container-error-message" *ngIf="codigo.errors.minlength">
+         minimo 5 letra de longitud
+        </div>
+      </div>
+
+      <input type="text" autocomplete="off" formControlName="name" placeholder="Ingres Nombre">
+      <div class="alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+        <div class="container-error-message" *ngIf="name?.errors.required">
+         Se requiere Nombre
+        </div>
+        <div class="container-error-message" *ngIf="name.errors.minlength">
+         minimo 5 letra de longitud
+        </div>
+      </div>
+  
+ 
+
+      <button type="submit" class="btn-send" [disabled]="!Form.valid">Guardar</button>
+    </form>
+  </div>
+  

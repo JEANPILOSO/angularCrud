@@ -1,0 +1,31 @@
+<div class="container">
+<div style="text-align:right;">
+<button class="btn btn-primary mb-3"  (click)="irCrear()">Nuevo Producto</button>
+</div>
+<form>
+    <div class="container">
+    <table class="table table-sm table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th class="col-2">Código</th>
+                <th class="col-2">Nombre</th>
+                <th class="col-1">Acción</th>
+              
+            </tr> 
+        </thead> 
+        <tbody class="table table-sm">
+           
+                @for (producto of this.productos; track $index) {
+                    <tr>
+                    <td>{{producto.codigo}}</td>
+                    <td>{{producto.name}}</td>
+                    <th><button type="button" class="btn btn-success mb-3"  (click)="irModificar(producto.codigo)">Actualizar</button>
+                        &nbsp; &nbsp;<button type="button" class="btn btn-danger mb-3"  (click)="eliminar(producto.codigo)" >Eliminar</button></th>
+                </tr>
+                  }
+           
+        </tbody>
+    </table>
+</div>
+</form>
+</div>
